@@ -56,12 +56,30 @@
     </script>
 
     <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
         body {
             color: #444444;
             margin: 40px auto;
             max-width: 670px;
             padding: 0 10px;
             font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0px;
         }
 
         hr {
@@ -82,6 +100,76 @@
                 color: #8e96f0
             }
         }
+
+        /* style rules applied when printing the site */
+
+        @page {
+            size: Letter portrait;
+            /* margin default ensures title, url, page numbering and date shows on the pages 
+            whereas a value of 0 eliminates them*/
+            margin: 0;
+        }
+
+        @media print {
+
+            html,
+            body {
+                background-color: white !important;
+                font-size: 12px;
+            }
+
+            article {
+                margin: 0 !important;
+            }
+
+            hr {
+                display: none;
+            }
+
+            /* avoid page breaks on headers */
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            h1::after,
+            h2::after,
+            h3::after,
+            h4::after,
+            h5::after,
+            h6::after {
+                content: '';
+                display: block;
+                height: 100px;
+                margin-bottom: -100px;
+                page-break-before: avoid;
+            }
+
+            /* style anchor tags so that they show their href attributes */
+            a[href]:after {
+                content: " (" attr(href) ")";
+            }
+
+            a[href^="http://"]:after,
+            a[href^="https://"]:after {
+                content: " (" attr(href) ")";
+            }
+
+            a[href^="#"]:after,
+            a[href^="javascript:"]:after {
+                content: "";
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+        }
     </style>
 </head>
 
@@ -89,9 +177,11 @@
     <header>
         <h1>Spyros Goulas</h1>
         <h2>Senior Front End Engineer</h2>
-        <p>Front End engineer with professional experience in e-commerce, administration and betting
-            applications, from small collocated teams up to large international ones.</p>
-        <hr>
+        <article id="introduction-text">
+            <p>Front End engineer with professional experience in e-commerce, administration and betting
+                applications, from small collocated teams up to large international ones.</p>
+            <hr>
+        </article>
         <article id="contact-information">
             <h2>Contact information</h2>
             <ul>
