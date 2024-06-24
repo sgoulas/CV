@@ -122,9 +122,14 @@
                 margin: 0 !important;
             }
 
+            /* don't display thematic breaks and contact information in print*/
+            #contact-information,
+            #activities,
+            .hide-when-printing,
             hr {
                 display: none;
             }
+
 
             /* avoid page breaks on headers */
             h1,
@@ -195,16 +200,20 @@
     <hr>
     <section id="education">
         <h2>Education</h2>
-        <strong>University of Patras</strong>
-        <i><time datetime="2009-09-01">September 2009</time> - <time datetime="2016-08-01">August 2016</time></i>
-        <p><strong>Master of Science: Computer Engineering & Informatics</strong></p>
-        <p>As part of my thesis I developed a mobile first
-            route sharing application that utilized Google
-            Maps in order to create, share, rate and save
-            routes in the city of Patras.
-            I also was assistant lecturer in the undergraduate
-            courses of Parallel Data Processing and Logical
-            Design lab. Member of the I.T team.</p>
+        <article>
+            <strong>Hellenic Open University</strong>
+            <i><time datetime="20024-10-07">October 2024</time> - current</i>
+            <p><strong>Postgraduate programme: Data Science and Machine Learning </strong></p>
+        </article>
+        <article>
+            <strong>University of Patras</strong>
+            <i><time datetime="2009-09-01">September 2009</time> - <time datetime="2016-08-01">August 2016</time></i>
+            <p><strong>Master of Science: Computer Engineering & Informatics</strong></p>
+            <p>As my thesis I developed a mobile first
+                route sharing application that utilized Google
+                Maps in order to create, share, rate and favourite
+                routes in the city of Patras.</p>
+        </article>
     </section>
     <hr>
     <main>
@@ -278,7 +287,7 @@
                             request analysis, CMS administrator, SEO,
                             performance optimization, operation support,
                             quality assurance, analytics implementation. A
-                            highlight of my time there would be delivering
+                            highlight of my time there is delivering
                             the revamped checkout flow and implementing
                             the site’s analytics.</p>
                     </li>
@@ -326,7 +335,8 @@
                         architectural, stack and design choice I made, as well as every problem I encountered and the
                         solutions I came up with.</p>
 
-                    <p><a href="https://github.com/sgoulas/pdpProject" target="_blank">Link to the github repository</a>
+                    <p class="hide-when-printing"><a href="https://github.com/sgoulas/pdpProject" target="_blank">Link
+                            to the github repository</a>
                     </p>
                     <p><i>Featured in the weekly must read list of <a href="https://www.dev.to"
                                 target="_blank">dev.to</a></i></p>
@@ -339,7 +349,7 @@
                         they dynamically encrypt / decrypt the user
                         input.</p>
 
-                    <p>Stack used: React, Material-UI, Jest,
+                    <p class="hide-when-printing">Stack used: React, Material-UI, Jest,
                         react-testing-library.</p>
                 </li>
                 <li id="pofpp-catalogue">
@@ -347,12 +357,11 @@
                     <p>An online, mobile friendly, library for the
                         Literature Team of University of Patras that I
                         created while completing my undergraduate
-                        studies.</p>
-                    <p>It was deployed and subsequently used for close to two years.</p>
+                        studies. It was deployed and subsequently used for close to two years.</p>
                 </li>
                 <li id="discord-bots">
                     <strong>Discord bots</strong>
-                    <p>I have written two Discord bots for personal usage: one for managing a tournament team for
+                    <p> Two Discord bots for personal usage: one for managing a tournament team for
                         <i>League
                             of
                             Legends</i> and one for alerting people of <i>Diablo 4</i> world events. Both were
